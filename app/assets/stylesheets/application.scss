@@ -1,0 +1,28 @@
+@import 'bootstrap';
+
+.table-bordered {
+    border: 1px solid white;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid white;
+  }
+
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  .footer {
+    background-color: #212529; /* Matches the navbar color */
+  }
+  

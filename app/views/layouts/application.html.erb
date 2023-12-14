@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ClientManagementApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Client List</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- For Rails 5 with Asset Pipeline -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <!-- For Rails 5 with Asset Pipeline -->
+</head>
+<body>
+  <header class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <span class="navbar-brand mb-0 h1">Full Pelt Clients</span>
+    </div>
+  </header>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
+  <main role="main" class="container mt-3 flex-shrink-0">
     <%= yield %>
-  </body>
+  </main>
+
+  <footer class="footer mt-auto bg-dark text-white">
+    <div class="container text-center py-3">
+      <p>© Full Pelt 2023</p>
+    </div>
+  </footer>
+</body>
 </html>

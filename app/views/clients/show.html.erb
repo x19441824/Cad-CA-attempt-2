@@ -1,35 +1,43 @@
-<h1>Client Details</h1>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Client Details</h1>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Name:</strong>
+        <%= @client.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @client.email %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @client.email %>
-</p>
+      <p>
+        <strong>Address:</strong>
+        <%= @client.address %>
+      </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @client.address %>
-</p>
+      <p>
+        <strong>Phone Number:</strong>
+        <%= @client.phone_number %>
+      </p>
 
-<p>
-  <strong>Phone Number:</strong>
-  <%= @client.phone_number %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @client.description %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @client.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @client.price %>
-</p>
-
-<%= link_to 'Edit this client', edit_client_path(@client) %> |
-<%= link_to 'Back to clients', clients_path %> |
-<%= button_to "Destroy this client", @client, method: :delete %>
+      <p>
+        <strong>Price:</strong>
+        <%= number_to_currency(@client.price) %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Edit this client', edit_client_path(@client), class: 'btn btn-outline-secondary' %> |
+      <%= link_to 'Back to clients', clients_path, class: 'btn btn-outline-secondary' %> |
+      <%= button_to "Destroy this client", @client, method: :delete, form_class: 'd-inline', class: 'btn btn-outline-danger' %>
+    </div>
+  </div>
+</div>
