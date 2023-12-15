@@ -3,7 +3,7 @@
 <div class="container mt-4">
   <h1>New Client</h1>
   
-  <%= form_with(model: @client, local: true, class: 'needs-validation', novalidate: true) do |form| %>
+  <%= form_with(model: @client, local: true, html: { multipart: true }, class: 'needs-validation', novalidate: true) do |form| %>
     <% if @client.errors.any? %>
       <div class="alert alert-danger" role="alert">
         <h4 class="alert-heading"><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h4>
@@ -44,11 +44,14 @@
       <%= form.label :price, class: 'form-label' %>
       <%= form.number_field :price, step: :any, class: 'form-control' %>
     </div>
+    <div class="form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
 
-    <div class="actions">
+    <div class="actions mt-3">
       <%= form.submit 'Create Client', class: 'btn btn-success' %>
+      <%= link_to 'Back to clients', clients_path, class: 'btn btn-secondary' %>
     </div>
   <% end %>
-
-  <%= link_to 'Back to clients', clients_path, class: 'btn btn-secondary' %>
 </div>
