@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_13_132615) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_14_104555) do
   create_table "client_translations", force: :cascade do |t|
     t.integer "client_id", null: false
     t.string "locale", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_13_132615) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
 end

@@ -40,6 +40,11 @@
     <%= form.text_field :price, id: :client_price, class: 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
   </div>

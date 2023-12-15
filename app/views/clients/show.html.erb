@@ -33,6 +33,11 @@
         <strong>Price:</strong>
         <%= number_to_currency(@client.price) %>
       </p>
+
+      <% if @client.image? %>
+      <%= image_tag @client.image.url %>
+      <% end %>
+
     </div>
     <div class="card-footer">
       <%= link_to 'Edit this client', edit_client_path(@client), class: 'btn btn-outline-secondary' %> |

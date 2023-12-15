@@ -20,6 +20,10 @@ gem "importmap-rails"
 
 gem 'globalize'
 
+gem 'carrierwave', '~> 2.0'
+
+gem 'mini_magick'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
