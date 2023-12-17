@@ -1,9 +1,14 @@
+<%# Header for the clients page %>
 <h1>Clients</h1>
 
+<%# Link to the page for creating a new client %>
 <%= link_to 'New Client', new_client_path, class: 'btn btn-primary mb-3' %>
 
+<%# Responsive table to display client data %>
 <div class="table-responsive">
   <table class="table table-bordered">
+
+    <%# Table header with column names %>
     <thead class="thead-dark">
       <tr>
         <th>ID</th>
@@ -15,21 +20,29 @@
         <th colspan="3">Actions</th>
       </tr>
     </thead>
+
+    <%# Table body where client data will be displayed %>
     <tbody>
+      <%# Iterating over each client to display their data %>
       <% @clients.each do |client| %>
         <tr>
+          <%# Displaying each attribute of the client %>
           <td><%= client.id %></td>
           <td><%= client.name %></td>
           <td><%= client.email %></td>
           <td><%= client.phone_number %></td>
           <td><%= client.description %></td>
           <td><%= client.price %></td>
+
+          <%# Action buttons for each client: Show, Edit, Delete %>
           <td><%= link_to 'Show', client, class: 'btn btn-info' %></td>
           <td><%= link_to 'Edit', edit_client_path(client), class: 'btn btn-warning' %></td>
-          <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <td>
+            <%# Delete link with a confirmation prompt %>
+            <%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-

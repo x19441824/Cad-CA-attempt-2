@@ -1,41 +1,45 @@
 class ClientsController < ApplicationController
+  # Sets up a client object before certain actions
   before_action :set_client, only: %i[show edit update destroy]
 
-  # GET /clients or /clients.json
+  # Shows all clients.
   def index
     @clients = Client.all
   end
 
-  # GET /clients/new
+  # Displays a form for a new client.
   def new
     @client = Client.new
   end
 
-  # GET /clients/1 or /clients/1.json
+  # Shows a single client.
   def show
   end
 
-  # GET /clients/1/edit
+   # Displays a form for editing a client.
   def edit
     @client = Client.find(params[:id])
   end
 
-  # POST /clients or /clients.json
+  # Creates a client.
   def create
     @client = Client.new(client_params)
 
+    # Responds to both HTML and JSON formats
     respond_to do |format|
       if @client.save
+        # Redirects to the client's show page with a success message
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
+        # Renders the 'new' form again with error messages
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /clients/1 or /clients/1.json
+  # Updates a client.
   def update
     respond_to do |format|
       if @client.update(client_params)
@@ -48,7 +52,7 @@ class ClientsController < ApplicationController
     end
   end
 
-  # DELETE /clients/1 or /clients/1.json
+   # Deletes a client.
   def destroy
     @client.destroy
     respond_to do |format|
@@ -59,14 +63,14 @@ class ClientsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  # Sets a client object from the database using the ID from the URL parameters
   def set_client
     @client = Client.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to clients_url, alert: 'Client not found.'
   end
 
-  # Only allow a list of trusted parameters through.
+  # Sanitizes the parameters by allowing only certain attributes to be used in actions
   def client_params
     params.require(:client).permit(:name, :email, :address, :phone_number, :description, :price, :image)
   end

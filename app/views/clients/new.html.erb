@@ -1,12 +1,19 @@
-<%# app/views/clients/new.html.erb %>
-
+<%# Container for the new client form with top margin %>
 <div class="container mt-4">
+  
+  <%# Heading for the new client form %>
   <h1>New Client</h1>
   
+  <%# Form for creating a new client. Uses Rails' form_with helper. %>
   <%= form_with(model: @client, local: true, html: { multipart: true }, class: 'needs-validation', novalidate: true) do |form| %>
+    
+    <%# Checks if there are any validation errors for the @client object %>
     <% if @client.errors.any? %>
+      <%# Alert box for displaying form errors %>
       <div class="alert alert-danger" role="alert">
+        <%# Displays the number of errors in the form %>
         <h4 class="alert-heading"><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h4>
+        <%# Lists each form error %>
         <ul>
           <% @client.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -15,43 +22,53 @@
       </div>
     <% end %>
 
+    <%# Form field for client name %>
     <div class="form-group">
       <%= form.label :name, class: 'form-label' %>
       <%= form.text_field :name, class: 'form-control' %>
     </div>
 
+    <%# Form field for client email %>
     <div class="form-group">
       <%= form.label :email, class: 'form-label' %>
       <%= form.email_field :email, class: 'form-control' %>
     </div>
 
+    <%# Form field for client address %>
     <div class="form-group">
       <%= form.label :address, class: 'form-label' %>
       <%= form.text_area :address, class: 'form-control' %>
     </div>
 
+    <%# Form field for client phone number %>
     <div class="form-group">
       <%= form.label :phone_number, class: 'form-label' %>
       <%= form.telephone_field :phone_number, class: 'form-control' %>
     </div>
 
+    <%# Form field for client description %>
     <div class="form-group">
       <%= form.label :description, class: 'form-label' %>
       <%= form.text_area :description, class: 'form-control' %>
     </div>
 
+    <%# Form field for client price %>
     <div class="form-group">
       <%= form.label :price, class: 'form-label' %>
       <%= form.number_field :price, step: :any, class: 'form-control' %>
     </div>
-    <div class="form-group">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
 
+    <%# Form field for uploading an image %>
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
+    <%# Submit button for the form %>
     <div class="actions mt-3">
       <%= form.submit 'Create Client', class: 'btn btn-success' %>
       <%= link_to 'Back to clients', clients_path, class: 'btn btn-secondary' %>
     </div>
   <% end %>
 </div>
+

@@ -1,48 +1,67 @@
+<%# Container for the client details with margin top %>
 <div class="container mt-4">
+  
+  <%# Card component for better visual structuring %>
   <div class="card">
+
+    <%# Header of the card displaying the title %>
     <div class="card-header">
       <h1>Client Details</h1>
     </div>
+
+    <%# Body of the card containing client information %>
     <div class="card-body">
+      
+      <%# Displaying the client's name %>
       <p>
         <strong>Name:</strong>
         <%= @client.name %>
       </p>
 
+      <%# Displaying the client's email %>
       <p>
         <strong>Email:</strong>
         <%= @client.email %>
       </p>
 
+      <%# Displaying the client's address %>
       <p>
         <strong>Address:</strong>
         <%= @client.address %>
       </p>
 
+      <%# Displaying the client's phone number %>
       <p>
         <strong>Phone Number:</strong>
         <%= @client.phone_number %>
       </p>
 
+      <%# Displaying the client's description %>
       <p>
         <strong>Description:</strong>
         <%= @client.description %>
       </p>
 
+      <%# Displaying the client's price in currency format %>
       <p>
         <strong>Price:</strong>
         <%= number_to_currency(@client.price) %>
       </p>
 
+      <%# Conditionally displaying the client's image if it exists %>
       <% if @client.image? %>
-      <%= image_tag @client.image.url %>
+        <%= image_tag @client.image.url %>
       <% end %>
 
     </div>
+
+    <%# Footer of the card with action buttons %>
     <div class="card-footer">
       <%= link_to 'Edit this client', edit_client_path(@client), class: 'btn btn-outline-secondary' %> |
       <%= link_to 'Back to clients', clients_path, class: 'btn btn-outline-secondary' %> |
       <%= button_to "Delete this client", @client, method: :delete, form_class: 'd-inline', class: 'btn btn-outline-danger' %>
     </div>
+
   </div>
 </div>
+

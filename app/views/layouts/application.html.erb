@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%# Sets the title of the webpage %>
   <title>Client List</title>
+
+  <%# Links a favicon to the webpage %>
   <%= favicon_link_tag 'Icon.png' %>
+
+  <%# Includes CSRF meta tags for security %>
   <%= csrf_meta_tags %>
+
+  <%# Content Security Policy meta tag for additional security %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- For Rails 5 with Asset Pipeline -->
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <!-- For Rails 5 with Asset Pipeline -->
+
+  <%# Links the main CSS file for styles. Data-turbolinks-track reloads styles on Turbolinks visits %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <%# Includes the main JavaScript file. Data-turbolinks-track reloads scripts on Turbolinks visits %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  <%# Header section with a navigation bar %>
   <header class="navbar navbar-dark bg-dark">
     <div class="container">
-       <%= image_tag 'LOGO.png', alt: 'Company Logo', class: 'class' %>
+      <%# Displays the company logo %>
+      <%= image_tag 'LOGO.png', alt: 'Company Logo', class: 'class' %>
+      
+      <%# Displays the title of the application in the navbar %>
       <span class="navbar-brand mb-0 h1">Full Pelt Clients</span>
+
+      <%# Displays the formatted current date using the Utilities module %>
       <%= Utilities.format_date(Date.today) %>
     </div>
   </header>
 
+  <%# Main content area where different views will be rendered %>
   <main role="main" class="container mt-3 flex-shrink-0">
     <%= yield %>
   </main>
 
+  <%# Footer section of the webpage %>
   <footer class="footer mt-auto bg-dark text-white">
     <div class="container text-center py-3">
+      <%# Displays copyright notice %>
       <p>© Full Pelt 2023</p>
     </div>
   </footer>
 </body>
 </html>
+
