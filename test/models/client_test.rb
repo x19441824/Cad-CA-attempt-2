@@ -33,7 +33,7 @@ class ClientTest < ActiveSupport::TestCase
     client = Client.new(name: 'Test Client', email: 'test@example.com', price: 'not a number')
     assert_not client.save, 'Saved the client with a non-numeric price'
   end
-  
+
 
   # Add more tests as needed for other validations and business logic
 end
